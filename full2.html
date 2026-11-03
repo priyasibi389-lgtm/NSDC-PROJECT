@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Purplle Glow Beauty Store</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background-color: #fff4fc;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.gold-emblem {
+    width: 110px;
+    height: 110px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.outer-circle {
+    width: 85px;
+    height: 85px;
+    border: 4px solid #ffd700;
+    border-left-color: transparent;
+    border-radius: 50%;
+    transform: rotate(-35deg);
+    position: absolute;
+    box-shadow: 0 0 12px gold;
+}
+
+.gold-star {
+    font-size: 75px;
+    color: #ffd700;
+    text-shadow: 0 0 10px gold, 0 0 25px orange;
+}
+
+.small-star {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    color: #ffdf70;
+    font-size: 25px;
+}
+
+.bottom-star {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    color: #ffd700;
+    font-size: 22px;
+}
+
+.logo-text h1 {
+    color: white;
+    font-family: Georgia, serif;
+    font-size: 38px;
+    letter-spacing: 4px;
+    margin: 5px;
+}
+
+.logo-text p {
+    color: #ffe5fa;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+header {
+    background: linear-gradient(to right, #7200a8, #ed39ad);
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+header h1 {
+    font-size: 38px;
+    letter-spacing: 3px;
+}
+
+nav {
+    background-color: #43005e;
+    padding: 18px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+nav a:hover {
+    color: #ffb6e6;
+}
+
+.page {
+    display: none;
+    padding: 25px;
+}
+
+#home {
+    display: block;
+}
+
+.banner {
+    background: linear-gradient(to right, #f7a9e2, #c58bff);
+    text-align: center;
+    padding: 60px 20px;
+    border-radius: 20px;
+    color: #4b005e;
+}
+
+.banner h2 {
+    font-size: 38px;
+}
+
+h2 {
+    color: #85008b;
+    text-align: center;
+}
+
+.products {
+    text-align: center;
+}
+
+.card {
+    display: inline-block;
+    background-color: white;
+    width: 220px;
+    margin: 15px;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 3px 12px #d8a5d8;
+    vertical-align: top;
+}
+
+.card img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.card h3 {
+    color: #720080;
+}
+
+.price {
+    color: #e60085;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+button {
+    background-color: #9400a8;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #e6009d;
+}
+
+.offer {
+    background: linear-gradient(to right, #ffb6d9, #d6a5ff);
+    padding: 35px;
+    text-align: center;
+    border-radius: 20px;
+    margin: 20px;
+}
+
+.about, .contact {
+    background-color: white;
+    padding: 30px;
+    margin: 20px;
+    border-radius: 15px;
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+.details {
+    background-color: white;
+    max-width: 750px;
+    margin: 25px auto;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 3px 15px #d8a5d8;
+    text-align: center;
+}
+
+.details img {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.details h2 {
+    color: #85008b;
+}
+
+footer {
+    background-color: #43005e;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 30px;
+}
+</style>
+
+<script>
+
+function showPage(pageName) {
+
+    var pages = document.getElementsByClassName("page");
+
+    for (var i = 0; i < pages.length; i++) {
+        pages[i].style.display = "none";
+    }
+
+    document.getElementById(pageName).style.display = "block";
+
+    window.scrollTo(0, 0);
+}
+
+function showProduct(name, price, image, description) {
+
+    document.getElementById("productName").innerHTML = name;
+
+    document.getElementById("productPrice").innerHTML = price;
+
+    document.getElementById("productImage").src = image;
+
+    document.getElementById("productDescription").innerHTML = description;
+
+    showPage("productDetails");
+}
+
+</script>
+</head>
+
+<body>
+
+<header class="logo-header">
+
+    <div class="logo">
+
+    <div class="gold-emblem">
+        <div class="outer-circle"></div>
+        <div class="gold-star">✦</div>
+        <div class="small-star">✦</div>
+        <div class="bottom-star">✦</div>
+    </div>
+
+    <div class="logo-text">
+        <h1>PURPLLE GLOW</h1>
+        <p>✦ BEAUTY • ELEGANCE • CONFIDENCE ✦</p>
+    </div>
+
+</div>
+    </div>
+
+</header>
+
+<nav>
+    <a onclick="showPage('home')">Home</a>
+    <a onclick="showPage('makeup')">Makeup</a>
+    <a onclick="showPage('skincare')">Skincare</a>
+    <a onclick="showPage('haircare')">Haircare</a>
+    <a onclick="showPage('offers')">Offers</a>
+    <a onclick="showPage('about')">About</a>
+    <a onclick="showPage('contact')">Contact</a>
+</nav>
+
+<!-- HOME -->
+
+<div id="home" class="page">
+
+    <div class="banner">
+        <h2>Discover Your Beauty</h2>
+        <p>Explore a world of beauty, skincare and makeup.</p>
+        <h3>Welcome to Purplle Glow!</h3>
+        <button onclick="showPage('makeup')">Explore Now</button>
+    </div>
+
+    <h2>Our Popular Collections</h2>
+
+    <div class="products">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400">
+            <h3>Makeup Collection</h3>
+            <button onclick="showPage('makeup')">Explore</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400">
+            <h3>Skincare Collection</h3>
+            <button onclick="showPage('skincare')">Explore</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=400">
+            <h3>Haircare Collection</h3>
+            <button onclick="showPage('haircare')">Explore</button>
+        </div>
+
+    </div>
+</div>
+
+<!-- MAKEUP -->
+
+<div id="makeup" class="page">
+
+    <h2>Makeup Collection</h2>
+
+    <div class="products">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400">
+            <h3>Lipstick</h3>
+            <p class="price">₹299</p>
+            <button onclick="showProduct('Lipstick','₹299','https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=600','Beautiful lipstick shades for every occasion.')">Explore Product</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400">
+            <h3>Makeup Kit</h3>
+            <p class="price">₹599</p>
+            <button onclick="showProduct('Makeup Kit','₹599','https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600','Your everyday makeup essentials in one collection.')">Explore Product</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400">
+            <h3>Beauty Palette</h3>
+            <p class="price">₹499</p>
+            <button onclick="showProduct('Beauty Palette','₹499','https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600','Colourful shades for creative makeup looks.')">Explore Product</button>
+        </div>
+
+        <div class="card">
+            <img src="https://th.bing.com/th/id/OIP.oUW7t1zEQHuAeS-QPlyxQgHaJ4?w=132&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3">
+            <h3>Makeup Brushes</h3>
+            <p class="price">₹399</p>
+            <button onclick="showProduct('Makeup Brushes','₹399','https://th.bing.com/th/id/OIP.oUW7t1zEQHuAeS-QPlyxQgHaJ4?w=132&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3','Essential brushes for applying makeup.')">Explore Product</button>
+        </div>
+
+    </div>
+</div>
+
+<!-- SKINCARE -->
+
+<div id="skincare" class="page">
+
+    <h2>Skincare Collection</h2>
+
+    <div class="products">
+
+        <div class="card">
+            <img src="https://th.bing.com/th/id/OIP.TFcUi29Z2uHrdEckfRVEiQHaHa?w=165&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3">
+            <h3>Face Cream</h3>
+            <p class="price">₹350</p>
+            <button onclick="showProduct('Face Cream','₹350','https://th.bing.com/th/id/OIP.TFcUi29Z2uHrdEckfRVEiQHaHa?w=165&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3','A daily skincare essential.')">Explore Product</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=400">
+            <h3>Serum</h3>
+            <p class="price">₹450</p>
+            <button onclick="showProduct('Serum','₹450','https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=600','A simple addition to your skincare routine.')">Explore Product</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?w=400">
+            <h3>Face Wash</h3>
+            <p class="price">₹199</p>
+            <button onclick="showProduct('Face Wash','₹199','https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?w=600','A gentle daily cleansing essential.')">Explore Product</button>
+        </div>
+
+    </div>
+</div>
+
+<!-- HAIRCARE -->
+
+<div id="haircare" class="page">
+
+    <h2>Haircare Collection</h2>
+
+    <div class="products">
+
+        <div class="card">
+            <img src="https://th.bing.com/th/id/OIP.KkSIKsN7Mr_9iCKjD8viUQHaFj?w=209&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3">
+            <h3>Hair Oil</h3>
+            <p class="price">₹250</p>
+            <button onclick="showProduct('Hair Oil','₹250','https://th.bing.com/th/id/OIP.KkSIKsN7Mr_9iCKjD8viUQHaFj?w=209&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3','A haircare essential for your daily routine.')">Explore Product</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400">
+            <h3>Shampoo</h3>
+            <p class="price">₹299</p>
+            <button onclick="showProduct('Shampoo','₹299','https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=600','An everyday hair cleansing essential.')">Explore Product</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=400">
+            <h3>Haircare Set</h3>
+            <p class="price">₹499</p>
+            <button onclick="showProduct('Haircare Set','₹499','https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=600','Explore your favourite haircare essentials.')">Explore Product</button>
+        </div>
+
+    </div>
+</div>
+
+<!-- OFFERS -->
+
+<div id="offers" class="page">
+
+    <h2>Special Offers</h2>
+
+    <div class="offer">
+        <h2>Beauty Festival</h2>
+        <h3>Special Discounts!</h3>
+        <p>Explore our selected beauty collections.</p>
+        <button onclick="showPage('makeup')">Shop Makeup</button>
+    </div>
+
+    <div class="offer">
+        <h2>Skincare Specials</h2>
+        <p>Discover our skincare collection.</p>
+        <button onclick="showPage('skincare')">Shop Skincare</button>
+    </div>
+
+</div>
+
+<!-- ABOUT -->
+
+<div id="about" class="page">
+
+    <h2>About Purplle Glow</h2>
+
+    <div class="about">
+
+        <h3>Welcome to Purplle Glow!</h3>
+
+        <p>
+        Purplle Glow is a beauty shopping website
+        created for people who love makeup,
+        skincare and haircare.
+        </p>
+
+        <p>
+        Our collection includes lipsticks,
+        beauty palettes, face creams, serums,
+        shampoos and many more products.
+        </p>
+
+        <p>
+        Our aim is to make beauty shopping
+        simple, colourful and enjoyable.
+        </p>
+
+    </div>
+</div>
+
+<!-- CONTACT -->
+
+<div id="contact" class="page">
+
+    <h2>Contact Us</h2>
+
+    <div class="contact">
+
+        <h3>We Would Love to Hear From You!</h3>
+
+        <p>Email: support@purplleglow.com</p>
+        <p>Phone: +91 9876543210</p>
+        <p>Location: Kerala, India</p>
+
+        <h3>Thank You for Visiting Purplle Glow!</h3>
+
+    </div>
+</div>
+
+<!-- PRODUCT DETAILS -->
+
+<div id="productDetails" class="page">
+
+    <div class="details">
+
+        <h2>Product Details</h2>
+
+        <img id="productImage" src="" alt="Selected product">
+
+        <h2 id="productName">Product Name</h2>
+
+        <p class="price" id="productPrice"></p>
+
+        <p id="productDescription"></p>
+
+        <button onclick="showPage('makeup')">
+            Back to Makeup
+        </button>
+
+        <button onclick="showPage('skincare')">
+            Back to Skincare
+        </button>
+
+        <button onclick="showPage('haircare')">
+            Back to Haircare
+        </button>
+
+    </div>
+
+</div>
+
+<footer>
+    <h3>PURPLLE GLOW</h3>
+    <p>Beauty • Elegance • Confidence</p>
+    <p>© 2026 Purplle Glow. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
